@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <style>
+        body { margin: 0; overflow: hidden; font-family: Arial, sans-serif; }
+        #gameCanvas { 
+            background-image: url('/img/bg_game.png');
+            background-size: cover;
+            display: block; 
+            width: 100%; 
+            height: 100vh; 
+        }
+        #startScreen, #pauseScreen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            display: none; /* Ẩn theo mặc định */
+        }
+        button {
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 20px;
+            color: white;
+            background-color: #007bff; /* Màu xanh dương */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            background-color: #0056b3; /* Màu xanh dương tối hơn khi hover */
+            transform: translateY(-2px); /* Di chuyển nút lên một chút khi hover */
+        }
+        button:focus {
+            outline: none; /* Ẩn viền khi nhấn nút */
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 32px; /* Kích thước tiêu đề lớn hơn */
+        }
+    </style>
+</head>
+<body>
+    <div id="startScreen">
+        <h1>Chào mừng đến với trò chơi!</h1>
+        <button id="startButton">Bắt đầu trò chơi</button>
+    </div>
+    <canvas id="gameCanvas"></canvas>
+    <div id="pauseScreen">
+        <h1>Trò chơi tạm dừng</h1>
+        <button id="resumeButton">Tiếp tục</button>
+        <button id="exitButton">Thoát</button>
+    </div>
+    <img src="/public/img/player.png" alt="">
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
